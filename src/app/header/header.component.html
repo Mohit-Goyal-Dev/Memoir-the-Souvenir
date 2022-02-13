@@ -1,0 +1,34 @@
+<mat-toolbar id="headerContainer">
+  <!-- <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <span id="brand"
+    ><a routerLink="/"
+      ><img src="../../assets/MemoirLogo1.png" alt="Memoir Logo" /></a
+  ></span>
+  <span class="spacer"></span>
+  <ul id="navlist">
+    <li *ngIf="userAuthenticated">
+      <a mat-button routerLink="/create" routerLinkActive="sel-highlight"
+        >New Post</a
+      >
+    </li>
+    <li *ngIf="!userAuthenticated">
+      <a mat-button routerLink="/auth/login" routerLinkActive="sel-highlight"
+        >Login</a
+      >
+    </li>
+    <li *ngIf="!userAuthenticated">
+      <a mat-button routerLink="/auth/signup" routerLinkActive="sel-highlight"
+        >Sign-Up</a
+      >
+    </li>
+    <li *ngIf="userAuthenticated">
+      <button mat-flat-button color="warn" (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>

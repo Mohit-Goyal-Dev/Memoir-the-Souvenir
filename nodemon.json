@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MONGO_ATLAS_PWD": "<password>",
+    "SECRET_KEY": "<enter your secret key>"
+  }
+}

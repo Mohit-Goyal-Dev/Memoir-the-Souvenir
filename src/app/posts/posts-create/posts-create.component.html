@@ -1,0 +1,96 @@
+<!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
+<!-- Reactive Form Approach-->
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        formControlName="title"
+        placeholder="Post Title"
+      />
+      <mat-error *ngIf="form.get('title').invalid"
+        >Please enter a post title!</mat-error
+      >
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">
+        Pick Image
+      </button>
+      <input
+        id="imgSelector"
+        #filePicker
+        type="file"
+        (change)="onImgSelected($event)"
+      />
+    </div>
+    <div
+      *ngIf="imagePrev && imagePrev !== '' && form.get('image').valid"
+      class="img-preview"
+    >
+      <img [src]="imagePrev" [alt]="form.value.title" />
+    </div>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="6"
+        [formControlName]="'content'"
+        placeholder="Post Description"
+      ></textarea>
+      <mat-error *ngIf="form.get('content').invalid"
+        >Please enter a post Description!</mat-error
+      >
+    </mat-form-field>
+    <button mat-raised-button class="success" type="submit">Save Post</button>
+  </form>
+</mat-card>
+
+<!-- Template Driven Form Approach-->
+<!-- <mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form
+    #newPostForm="ngForm"
+    (submit)="onSavePost(newPostForm)"
+    *ngIf="!isLoading"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        [ngModel]="editPost?.title"
+        #title="ngModel"
+        required
+        minlength="5"
+        placeholder="Post Title"
+      />
+      <mat-error *ngIf="title.invalid">Please enter a post title!</mat-error>
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">
+        Pick Image
+      </button>
+      <input id="imgSelector" #filePicker type="file" />
+    </div>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="6"
+        name="content"
+        [ngModel]="editPost?.content"
+        #content="ngModel"
+        required
+        placeholder="Post Description"
+      ></textarea>
+      <mat-error *ngIf="title.invalid"
+        >Please enter a post Description!</mat-error
+      >
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Post</button>
+  </form>
+</mat-card> -->
+<!-- <textarea rows="6" [(ngModel)]="enteredValue"></textarea>
+<hr />
+<button color="accent" (click)="onSavePost()">Save Post</button> -->
+<!-- <p>{{ newPost }}</p> -->

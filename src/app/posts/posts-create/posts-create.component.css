@@ -1,0 +1,26 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+#imgSelector {
+  visibility: hidden;
+}
+.img-preview {
+  height: 5rem;
+  margin: 1 rem 0;
+  border: 1px black dotted;
+}
+.img-preview img {
+  height: 100%;
+}
+
+.success {
+  letter-spacing: 1.5px;
+  background-color: #1a8d54;
+  color: #fff;
+}

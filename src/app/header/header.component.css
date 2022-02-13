@@ -1,0 +1,33 @@
+#headerContainer {
+  background-color: #404040;
+}
+
+#brand img {
+  object-fit: contain;
+  max-height: 100px;
+  width: 250px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+#navlist li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.sel-highlight {
+  color: #48b37e;
+  font-size: 15px;
+  font-weight: 700;
+}
